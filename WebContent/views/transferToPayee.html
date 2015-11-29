@@ -1,0 +1,32 @@
+<div ng-include="'views/header.html'"></div>
+<div ng-controller="transferToPayeeCtrl">
+	<div class="col-md-3 left-menu" ng-include="'views/side-nav.html'"></div>
+	<div class="col-md-6" style="margin-top:20px;">
+		<form name="userForm" ng-submit="submitForm()" novalidate>
+			<div style="margin:10px 0;">
+				<span class="dropdown">
+				    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">{{payeeName}}
+				    <span class="caret"></span></button>
+				    <ul class="dropdown-menu">
+				      <li ng-repeat="item in accounts"><a role="menuitem" ng-click="setPayeeName($index)">{{item.name}}</a></li>
+				    </ul>
+				</span>
+		   </div>
+			  <!--Account number -->
+	        <div class="form-group" ng-class="{ 'has-error' : userForm.accNum.$invalid && !userForm.accNum.$pristine }">
+	            <label>Amount</label>
+	            <input type="number" name="accNum" class="form-control" ng-model="user.accNum" required>
+	            <p ng-show="userForm.accNum.$invalid && !userForm.accNum.$pristine" class="help-block">Amount cannot be empty and shoulde be numeric.</p>
+	        </div>
+	         <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Confirm</button>
+	      </form>
+
+	</div>
+</div>
+<div class="col-md-3 right-showcase">
+		<img src="images/home3.jpg">
+		<img src="images/home4.jpg">
+	</div>
+<div class="col-md-12">
+<div ng-include="'views/footer.html'"></div>
+</div>

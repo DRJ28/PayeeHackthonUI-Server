@@ -1,0 +1,47 @@
+<div ng-include="'views/header.html'"></div>
+<div ng-controller="addPayeeCtrl">
+	<div class="col-md-3 left-menu" ng-include="'views/side-nav.html'"></div>
+	<div class="col-md-6" style="margin-top:20px">
+		<form name="userForm" ng-submit="submitForm()" novalidate>
+			 
+			 <!-- First NAME -->
+	        <div class="form-group" ng-class="{ 'has-error' : userForm.fname.$invalid && !userForm.fname.$pristine }">
+	            <label>First Name</label>
+	            <input type="text" name="fname" class="form-control" ng-model="user.fname" required>
+	            <p ng-show="userForm.fname.$invalid && !userForm.fname.$pristine" class="help-block">Your first name is required.</p>
+	        </div>
+
+	         <!-- Mobile -->
+	        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+	            <label style="float:left; width:100%">Mobile Number</label>
+	            <div style="float:left; width:20%">
+	                
+			<!-- 	<select ng-options="code as code.name for code in countrycode" ng-model="selectedCountrycode" ng-init="code"></select> -->
+
+				<span class="dropdown">
+				    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">{{countryCodeValue}}
+				    <span class="caret"></span></button>
+				    <ul class="dropdown-menu">
+				      <li ng-repeat="code in countrycode"><a role="menuitem" ng-click="setCountryCode($index)">{{code.name}}</a></li>
+				    </ul>
+				</span>
+		    
+	            </div>
+	            <div style="float:left; width:80%; margin-bottom:10px">
+	            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="10" ng-maxlength="10">
+	            <p ng-show="userForm.username.$error.minlength" class="help-block">Mobile number should be 10 digit.</p>
+	            <p ng-show="userForm.username.$error.maxlength" class="help-block">Mobile number should be 10 digit.</p>
+	            </div>
+	        </div>
+	         <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Add Payee</button>
+	      </form>
+
+	</div>
+</div>
+<div class="col-md-3 right-showcase">
+		<img src="images/home3.jpg">
+		<img src="images/home4.jpg">
+	</div>
+<div class="col-md-12">
+<div ng-include="'views/footer.html'"></div>
+</div>

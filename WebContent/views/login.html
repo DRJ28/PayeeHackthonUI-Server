@@ -1,0 +1,27 @@
+<div ng-include="'views/header2.html'"></div>
+<div class="col-md-6 col-sm-6 col-xs-12" ng-controller="LoginController">
+
+	 <form name="userForm" ng-submit="submitForm()" style="margin-top:20px;" novalidate>
+
+        <div class="form-group" ng-class="{ 'has-error' : userForm.userId.$invalid && !userForm.userId.$pristine }">
+            <label>Mobile Number</label>
+            <input type="number" name="userId" class="form-control" ng-model="user.userId" ng-minlength="10" ng-maxlength="13" required>
+            <p ng-show="userForm.userId.$error.minlength" class="help-block">Mobile number should be 10 digit.</p>
+            <p ng-show="userForm.userId.$error.maxlength" class="help-block">Mobile number should be 10 digit.</p>
+        </div>
+      
+        <!-- Password -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" ng-model="user.password" ng-minlength="4" ng-maxlength="16" required>
+            <p ng-show="userForm.password.$error.minlength" class="help-block">Password length should be minimum 10 digit.</p>
+            <p ng-show="userForm.password.$error.maxlength" class="help-block">Password length should be maximum 16 digit.</p>
+        </div>
+
+        <p ng-show="wrongUserPassword" class="payeeError">Wrong username or password.</p>
+        
+        <button type="submit" class="btn btn-primary" ng-click="submitLogin()" ng-disabled="userForm.$invalid"><a style="color:#fff">Submit</a></button>
+        <button  class="btn btn-primary"><a href="#/signup" style="color:#fff">Sign Up</a></button>
+        
+    </form>
+</div>

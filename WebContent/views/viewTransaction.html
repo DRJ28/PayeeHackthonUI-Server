@@ -1,0 +1,35 @@
+<div ng-include="'views/header.html'"></div>
+<div ng-controller="addPayeeCtrl">
+	<div class="col-md-3 left-menu" ng-include="'views/side-nav.html'"></div>
+	<div class="col-md-6" style="margin-top:20px;">
+<!-- 		<table class="table">
+			<tr><th>Sr.No</th><th>From/To Account</th><th>Credit</th><th>Debit</th><th>Transaction Id</th><th>Date</th></tr>
+			<tr ng-repeat="item in transaction">
+				<td>{{item.id}}</td>
+				<td>{{item.account}}</td>
+				<td>{{item.credit}}</td>
+				<td>{{item.debit}}</td>
+				<td>{{item.tranasctionId}}</td>
+				<td>{{item.date}}</td>
+			</tr>
+		</table> -->
+		<table class="table">
+			<tr><th>Transaction Id</th><th>From</th><th>To</th><th>Amount</th><th>Status</th><th>Date</th></tr>
+			<tr ng-repeat="item in transaction">
+				<td>{{item.transactionId}}</td>
+				<td>{{item.sender}}</td>
+				<td>{{item.receiver}}</td>
+				<td>{{item.amount}}</td>
+				<td>{{item.status}}</td>
+				<td>29/11/2015</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="col-md-3 right-showcase">
+		<img src="images/home3.jpg">
+		<img src="images/home4.jpg">
+	</div>
+<div class="col-md-12">
+	<div ng-include="'views/footer.html'"></div>
+</div>

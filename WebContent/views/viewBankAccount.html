@@ -1,0 +1,21 @@
+<div ng-include="'views/header.html'"></div>
+<div ng-controller="viewAccountsCtrl">
+<div class="col-md-3 left-menu" ng-include="'views/side-nav.html'"></div>
+<div class="col-md-6" style="margin-top:20px;">
+		<table class="table">
+			<tr><th>Sr.No</th><th>Bank Name</th><th>Account</th><th>Amount</th></tr>
+			<tr ng-repeat="item in accounts">
+				<td>{{item.id}}</td>
+				<td>{{item.name}}</td>
+				<td>{{item.account}}</td>
+				<td>{{item.amount}}</td>
+			</tr>
+		</table>
+</div>
+<div class="col-md-3 right-showcase">
+		<img src="images/home3.jpg">
+		<img src="images/home4.jpg">
+	</div>
+<div class="col-md-12">
+<div ng-include="'views/footer.html'"></div>
+</div>

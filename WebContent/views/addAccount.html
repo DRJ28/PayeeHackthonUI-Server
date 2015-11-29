@@ -1,0 +1,50 @@
+<div ng-include="'views/header.html'"></div>
+<div ng-controller="addAccountCtrl">
+	<div class="col-md-3 left-menu" ng-include="'views/side-nav.html'">
+		
+	</div>
+	<div class="col-md-6" style="margin-top:20px;">
+		<form name="userForm" ng-submit="submitForm()" novalidate>
+			<div style="margin:10px 0;">
+				<div>
+					<span class="dropdown">
+					    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">{{countryName}}
+					    <span class="caret"></span></button>
+					    <ul class="dropdown-menu">
+					      <li ng-repeat="item in items"><a role="menuitem" ng-click="setCountryName($index)">{{item.name}}</a></li>
+					    </ul>
+					</span>
+
+					<span class="dropdown">
+					    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">{{bankName}}
+					    <span class="caret"></span></button>
+					    <ul class="dropdown-menu">
+					      <li ng-repeat="item in bankslist"><a role="menuitem" ng-click="setBankName($index)">{{item.name}}</a></li>
+					    </ul>
+					</span>
+				</div>
+		   </div>
+			  <!--Account number -->
+	        <div class="form-group" ng-class="{ 'has-error' : userForm.accountNumber.$invalid && !userForm.accountNumber.$pristine }">
+	            <label>Account Number</label>
+	            <input type="number" name="accountNumber" class="form-control" ng-model="user.accountNumber" required>
+	            <p ng-show="userForm.accountNumber.$invalid && !userForm.accountNumber.$pristine" class="help-block">Account number is required.</p>
+	        </div>
+
+	          <!-- IFSC-->
+	        <div class="form-group" ng-class="{ 'has-error' : userForm.bankCode.$invalid && !userForm.bankCode.$pristine }">
+	            <label>Bank Code</label>
+	            <input type="number" name="bankCode" class="form-control" ng-model="user.bankCode" required>
+	            <p ng-show="userForm.bankCode.$invalid && !userForm.bankCode.$pristine" class="help-block">Bank code is required.</p>
+	        </div>
+	         <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+	    </form>
+	</div>
+</div>
+<div class="col-md-3 right-showcase">
+		<img src="images/home3.jpg">
+		<img src="images/home4.jpg">
+	</div>
+<div class="col-md-12">
+<div ng-include="'views/footer.html'"></div>
+</div>
